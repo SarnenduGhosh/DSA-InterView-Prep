@@ -4,6 +4,8 @@ Thumbs.db
 .idea/
 .vscode/
 .repo.git/
+.repo-data/
+repo-data/
 
 # Build outputs and generated files
 *.class

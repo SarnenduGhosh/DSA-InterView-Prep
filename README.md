@@ -133,23 +133,17 @@ Space Complexity: O(n)
 
 ## 📈 Progress
 
-| Category            | Status         |
-| ------------------- | -------------- |
-| Arrays              | 🔄 In Progress |
-| Strings             | ⬜ Not Started  |
-| Hashing             | ⬜ Not Started  |
-| Two Pointers        | ⬜ Not Started  |
-| Sliding Window      | ⬜ Not Started  |
-| Linked List         | ⬜ Not Started  |
-| Stack / Queue       | ⬜ Not Started  |
-| Binary Search       | ⬜ Not Started  |
-| Trees               | ⬜ Not Started  |
-| Heap                | ⬜ Not Started  |
-| Graphs              | ⬜ Not Started  |
-| Backtracking        | ⬜ Not Started  |
-| Greedy              | ⬜ Not Started  |
-| Dynamic Programming | ⬜ Not Started  |
-| Advanced Algorithms | ⬜ Not Started  |
+Completed: **0 / 220**
+
+Full dashboard: [PROGRESS.md](./PROGRESS.md)
+
+Update progress after adding Java solutions:
+
+```bash
+python3 tracker.py
+```
+
+Technique is detected from either a Java tag like `// Technique: Sorting` or a first-level subfolder like `arrays/sorting/SortColors.java`.
 
 ## 🏆 Target
 

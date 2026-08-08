@@ -1,0 +1,108 @@
+{
+  "generated_at": "08-08-2026 23:42:17",
+  "target_total": 220,
+  "totals": {
+    "completed": 0,
+    "remaining": 220,
+    "percent": 0.0
+  },
+  "categories": [
+    {
+      "category": "arrays",
+      "category_name": "Arrays",
+      "completed": 0
+    },
+    {
+      "category": "strings",
+      "category_name": "Strings",
+      "completed": 0
+    },
+    {
+      "category": "hashing",
+      "category_name": "Hashing",
+      "completed": 0
+    },
+    {
+      "category": "two-pointers",
+      "category_name": "Two Pointers",
+      "completed": 0
+    },
+    {
+      "category": "sliding-window",
+      "category_name": "Sliding Window",
+      "completed": 0
+    },
+    {
+      "category": "linked-list",
+      "category_name": "Linked List",
+      "completed": 0
+    },
+    {
+      "category": "stack",
+      "category_name": "Stack",
+      "completed": 0
+    },
+    {
+      "category": "queue",
+      "category_name": "Queue",
+      "completed": 0
+    },
+    {
+      "category": "binary-search",
+      "category_name": "Binary Search",
+      "completed": 0
+    },
+    {
+      "category": "recursion",
+      "category_name": "Recursion",
+      "completed": 0
+    },
+    {
+      "category": "trees",
+      "category_name": "Trees",
+      "completed": 0
+    },
+    {
+      "category": "bst",
+      "category_name": "BST",
+      "completed": 0
+    },
+    {
+      "category": "heap",
+      "category_name": "Heap",
+      "completed": 0
+    },
+    {
+      "category": "intervals",
+      "category_name": "Intervals",
+      "completed": 0
+    },
+    {
+      "category": "backtracking",
+      "category_name": "Backtracking",
+      "completed": 0
+    },
+    {
+      "category": "greedy",
+      "category_name": "Greedy",
+      "completed": 0
+    },
+    {
+      "category": "graphs",
+      "category_name": "Graphs",
+      "completed": 0
+    },
+    {
+      "category": "dynamic-programming",
+      "category_name": "Dynamic Programming",
+      "completed": 0
+    },
+    {
+      "category": "tries",
+      "category_name": "Tries",
+      "completed": 0
+    }
+  ],
+  "techniques": [],
+  "problems": []
+}
