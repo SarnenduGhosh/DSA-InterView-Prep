@@ -90,7 +90,7 @@ Optimize if Necessary
 ## 📁 Repository Structure
 
 ```text
-dsa-interview-preparation/
+DSA-InterView-Prep/
 │
 ├── arrays/
 ├── strings/
@@ -191,4 +191,3 @@ Previously solved problems are periodically revisited to improve:
 ---
 
 **Consistent practice. Strong fundamentals. Better problem solving.**
-

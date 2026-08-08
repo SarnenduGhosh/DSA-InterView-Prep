@@ -1,0 +1,21 @@
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.repo.git/
+
+# Build outputs and generated files
+*.class
+target/
+out/
+build/
+dist/
+
+# Runtime/cache files
+*.log
+__pycache__/
+.pytest_cache/
+
+# Local prep material
+Google_3_Month_Interview_Roadmap_COMPLETE.pdf
