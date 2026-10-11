@@ -1,0 +1,64 @@
+/*
+ * 645. Set Mismatch
+ * Difficulty: Easy
+ * https://leetcode.com/problems/set-mismatch/
+ *
+ * PROBLEM
+ * A set originally contained every integer from 1 to n.
+ * Due to an error, one number was replaced by another,
+ * causing one number to appear twice and another to be missing.
+ *
+ * Given the resulting array nums, return:
+ * [duplicate number, missing number]
+ *
+ * EXAMPLE 1
+ * Input:  nums = [1, 2, 2, 4]
+ * Output: [2, 3]
+ *
+ * EXAMPLE 2
+ * Input:  nums = [1, 1]
+ * Output: [1, 2]
+ *
+ * CONSTRAINTS
+ * 2 <= nums.length <= 10000
+ * 1 <= nums[i] <= 10000
+ *
+ * APPROACH
+ * Create a frequency array of size n + 1.
+ * Count how many times each number appears.
+ * A frequency of 2 identifies the duplicate.
+ * A frequency of 0 identifies the missing number.
+ * Store the duplicate first and the missing number second.
+ *
+ * COMPLEXITY
+ * Time: O(n)
+ * Extra space: O(n) for the frequency array.
+ */
+
+class Solution {
+    public int[] findErrorNums(int[] nums) {
+        return helper(nums);
+    }
+
+    public static int[] helper(int[] arr) {
+        int len = arr.length;
+        int[] freqArray = new int[len + 1];
+        int[] out = new int[2];
+
+        for (int i = 0; i < len; i++) {
+            freqArray[arr[i]]++;
+        }
+
+        for (int i = 1; i < freqArray.length; i++) {
+            if (freqArray[i] == 0) {
+                out[1] = i;
+            }
+
+            if (freqArray[i] == 2) {
+                out[0] = i;
+            }
+        }
+
+        return out;
+    }
+}
