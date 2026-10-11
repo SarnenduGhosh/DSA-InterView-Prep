@@ -1,0 +1,65 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/*
+ * 448. Find All Numbers Disappeared in an Array
+ * Difficulty: Easy
+ * https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+ *
+ * PROBLEM
+ * Given an array nums of n integers, where each number
+ * is in the range [1, n], return all numbers in that
+ * range that do not appear in nums.
+ *
+ * EXAMPLE 1
+ * Input:  nums = [4, 3, 2, 7, 8, 2, 3, 1]
+ * Output: [5, 6]
+ *
+ * EXAMPLE 2
+ * Input:  nums = [1, 1]
+ * Output: [2]
+ *
+ * CONSTRAINTS
+ * n == nums.length
+ * 1 <= n <= 100000
+ * 1 <= nums[i] <= n
+ *
+ * FOLLOW-UP
+ * Solve in O(n) time without extra space.
+ * The returned list does not count as extra space.
+ *
+ * APPROACH
+ * Create a frequency array of size n.
+ * Store the occurrence count of number x at index x - 1.
+ * If freq[i] is zero, the number i + 1 is missing.
+ * Add each missing number to the result list.
+ *
+ * COMPLEXITY
+ * Time: O(n)
+ * Extra space: O(n), excluding the returned list.
+ * This solution does not meet the follow-up's O(1)
+ * extra-space requirement.
+ */
+
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        return helper(nums);
+    }
+
+    public static List<Integer> helper(int[] arr) {
+        int[] freq = new int[arr.length];
+        List<Integer> out = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            freq[arr[i] - 1]++;
+        }
+
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] == 0) {
+                out.add(i + 1);
+            }
+        }
+
+        return out;
+    }
+}
