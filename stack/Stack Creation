@@ -1,0 +1,102 @@
+/*
+ * Stack Implementation Using an Array
+ *
+ * DESCRIPTION
+ * Implement a fixed-capacity integer stack.
+ * A stack follows LIFO: Last In, First Out.
+ *
+ * OPERATIONS
+ * push(num): Adds an element to the top.
+ *            Returns 1 on success or 0 if the stack is full.
+ * pop(): Removes and returns the top element.
+ * peek(): Returns the top element without removing it.
+ * isEmpty(): Checks whether the stack is empty.
+ * isFull(): Checks whether the stack is full.
+ *
+ * ERROR HANDLING
+ * A nonpositive capacity throws IllegalArgumentException.
+ * Calling peek() or pop() on an empty stack throws
+ * IllegalStateException.
+ *
+ * COMPLEXITY
+ * Each stack operation: O(1) time.
+ * Stack storage: O(capacity).
+ *
+ * EXPECTED OUTPUT
+ * Stack peek is 40
+ * Stack pop element 40
+ * Stack pop element 90
+ * Stack pop element 80
+ * Stack pop element 20
+ * Stack empty: true
+ */
+
+class stackFunctions {
+
+    private int top = -1;
+    private final int size;
+    private final int[] stack;
+
+    stackFunctions(int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException(
+                "Stack size must be positive"
+            );
+        }
+
+        this.size = size;
+        this.stack = new int[size];
+    }
+
+    public boolean isFull() {
+        return top == size - 1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+
+        return stack[top];
+    }
+
+    public int push(int num) {
+        if (isFull()) {
+            return 0;
+        }
+
+        stack[++top] = num;
+        return 1;
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack Underflow");
+        }
+
+        return stack[top--];
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        stackFunctions stack = new stackFunctions(4);
+
+        stack.push(20);
+        stack.push(80);
+        stack.push(90);
+        stack.push(40);
+
+        System.out.println("Stack peek is " + stack.peek());
+
+        while (!stack.isEmpty()) {
+            System.out.println("Stack pop element " + stack.pop());
+        }
+
+        System.out.println("Stack empty: " + stack.isEmpty());
+    }
+}
