@@ -1,0 +1,100 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.List;
+
+/*
+ * 636. Exclusive Time of Functions
+ * Difficulty: Medium
+ * https://leetcode.com/problems/exclusive-time-of-functions/
+ *
+ * PROBLEM
+ * A single-threaded CPU runs n functions with IDs from 0 to n - 1.
+ * Function calls are recorded as:
+ * "function_id:start:timestamp" or "function_id:end:timestamp".
+ *
+ * A start event happens at the beginning of its timestamp.
+ * An end event happens at the end of its timestamp.
+ *
+ * Return each function's exclusive execution time, excluding
+ * time spent executing other calls while that call is paused.
+ * Accumulate time across repeated and recursive calls by ID.
+ *
+ * EXAMPLE 1
+ * Input:
+ * n = 2
+ * logs = ["0:start:0", "1:start:2", "1:end:5", "0:end:6"]
+ * Output: [3, 4]
+ *
+ * EXAMPLE 2
+ * Input:
+ * n = 1
+ * logs = ["0:start:0", "0:start:2", "0:end:5",
+ *         "0:start:6", "0:end:6", "0:end:7"]
+ * Output: [8]
+ *
+ * EXAMPLE 3
+ * Input:
+ * n = 2
+ * logs = ["0:start:0", "0:start:2", "0:end:5",
+ *         "1:start:6", "1:end:6", "0:end:7"]
+ * Output: [7, 1]
+ *
+ * CONSTRAINTS
+ * 1 <= n <= 100
+ * 2 <= logs.length <= 500
+ * 0 <= function_id < n
+ * 0 <= timestamp <= 1000000000
+ * No two start events share a timestamp.
+ * No two end events share a timestamp.
+ * Every start event has a corresponding end event.
+ *
+ * APPROACH
+ * Use a stack to track active calls.
+ * The function at the top is currently executing.
+ * prevTime tracks the first time unit not yet counted.
+ *
+ * On start:
+ * - Credit the current top with time - prevTime.
+ * - Push the new function.
+ * - Set prevTime to time.
+ *
+ * On end:
+ * - Credit the top with time - prevTime + 1.
+ * - Pop the completed call.
+ * - Set prevTime to time + 1.
+ *
+ * COMPLEXITY
+ * Time: O(n + L), including result-array initialization,
+ * where L is the number of logs, under the given log-size limits.
+ * Extra space: O(D), excluding the result array,
+ * where D is the maximum call depth.
+ * Result space: O(n).
+ */
+
+class Solution {
+    public int[] exclusiveTime(int n, List<String> logs) {
+        int[] result = new int[n];
+        Deque<Integer> stack = new ArrayDeque<>();
+        int prevTime = 0;
+
+        for (String log : logs) {
+            String[] parts = log.split(":");
+            int id = Integer.parseInt(parts[0]);
+            int time = Integer.parseInt(parts[2]);
+
+            if (parts[1].equals("start")) {
+                if (!stack.isEmpty()) {
+                    result[stack.peek()] += time - prevTime;
+                }
+
+                stack.push(id);
+                prevTime = time;
+            } else {
+                result[stack.pop()] += time - prevTime + 1;
+                prevTime = time + 1;
+            }
+        }
+
+        return result;
+    }
+}
